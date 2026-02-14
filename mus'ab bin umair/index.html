@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" href="animasi.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keteladanan Mus'ab Bin Umair</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:'Poppins',sans-serif;
+}
+
+.background-awal,
+.background-utama,
+.background-penutup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.background-awal{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+    url('gambar1.jpg') no-repeat center center;
+    background-size:cover;
+    
+}
+
+.background-utama{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+    url('gambar3.jpg') no-repeat center center; 
+    background-size:cover;
+    display:none;
+}
+
+.background-penutup{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+    url('gambar4.jpg') no-repeat center center;
+    background-size:cover;
+    display:none;
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px;
+    text-align:center;
+    color:white;
+}
+
+h1{
+    font-size:2.5rem;
+    font-weight:700;
+    margin-bottom:10px;
+    text-shadow:2px 4px 10px rgba(0,0,0,0.8);
+}
+
+.btn-mulai{
+    background:#e2cc51;
+    color:#472b05;
+    padding:20px 40px;
+    font-size:1.2rem;
+    font-weight:600;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+#main-content,
+#halaman-penutup{
+    display:none;
+    width:100%;
+    max-width:700px;
+}
+
+.gambar-utama{
+    width:100%;
+    max-width:350px;
+    border-radius:15px;
+    margin:20px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.grid-poin{
+    display:grid;
+    gap:15px;
+    margin-top:20px;
+}
+
+.kotak{
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.3);
+    font-size:1.1rem;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-isi{
+    background:white;
+    color:#333;
+    padding:30px;
+    border-radius:20px;
+    max-width:400px;
+    position:relative;
+}
+
+.tutup{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:2rem;
+    cursor:pointer;
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="background-awal" id="bg-awal"></div>
+<div class="background-utama" id="bg-utama"></div>
+<div class="background-penutup" id="bg-penutup"></div>
+
+<!-- LETAKKAN DI SINI -->
+<div id="stars-container"></div>
+<div id="twinkle-container"></div>
+<body>
+
+<div class="container">
+
+<!-- LANDING -->
+<div id="landing-page">
+<h1>Kisah Keteladanan<br>Mus'ab Bin Umair</h1>
+<p>Duta Islam pertama yang penuh kebijaksanaan</p>
+<button class="btn-mulai" onclick="bukaWeb()">Pelajari Lebih Lanjut</button>
+</div>
+
+<!-- HALAMAN UTAMA -->
+<div id="main-content">
+<h2 style="margin-bottom:20px;">Contoh-Contoh Keteladanan Mus'ab Bin Umair</h2>
+
+<img src="gambar2.jpg" class="gambar-utama">
+
+<div class="grid-poin" id="list"></div>
+
+<button onclick="location.reload()" 
+style="background:none;border:1px solid white;color:white;padding:10px;border-radius:10px;margin-top:30px;cursor:pointer;">
+← Kembali
+</button>
+
+<button onclick="bukaPenutup()" 
+style="background:#e2cc51;border:none;color:#472b05;padding:12px 20px;border-radius:10px;margin-top:15px;cursor:pointer;">
+Selanjutnya →
+</button>
+</div>
+
+<!-- HALAMAN PENUTUP -->
+<div id="halaman-penutup" style="
+flex-direction:column;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:25px;
+text-align:center;
+color:white;
+">
+
+<div style="
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+padding:35px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.3);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+max-width:700px;
+">
+
+<h1 style="margin-bottom:20px;">
+Hikmah dari Keteladanan Mus'ab Bin Umair
+</h1>
+
+<p style="font-size:1.2rem;line-height:1.8;text-align:center;">
+Dari kisah Mus'ab Bin Umair, kita belajar bahwa keimanan yang kuat mampu
+mengalahkan kemewahan dunia. Keteguhan hati, keberanian berdakwah,
+pengorbanan demi agama, serta kesabaran dalam menghadapi ujian adalah
+cerminan akhlak mulia yang patut diteladani. Beliau menunjukkan bahwa
+kemuliaan sejati bukan terletak pada harta dan kedudukan, melainkan pada
+ketaatan dan perjuangan di jalan Allah.
+</p>
+
+</div>
+
+
+<div style="margin-top:30px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+
+<button onclick="document.getElementById('halaman-penutup').style.display='none';
+document.getElementById('bg-penutup').style.display='none';
+document.getElementById('main-content').style.display='block';
+document.getElementById('bg-utama').style.display='block';"
+style="padding:12px 20px;border:1px solid white;border-radius:10px;background:none;color:white;cursor:pointer;">
+← Kembali
+</button>
+
+<button onclick="location.reload()" 
+style="padding:12px 20px;border:none;border-radius:10px;background:#e2cc51;color:#472b05;cursor:pointer;">
+Kembali ke Awal
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="myModal" class="modal" onclick="tutupModal()">
+<div class="modal-isi" onclick="event.stopPropagation()">
+<span class="tutup" onclick="tutupModal()">&times;</span>
+<h2 id="judulModal" style="color:#27ae60;margin-bottom:10px;"></h2>
+
+<!-- DESKRIPSI SUDAH JUSTIFY -->
+<p id="teksModal" style="text-align:center; line-height:1.7;"></p>
+
+</div>
+</div>
+
+<script>
+const dataInfo=[
+            { t: "1. Lahir dari Keluarga Bangsawan Quraisy", d: "Mus'ab bin Umair lahir di Makkah dari keluarga yang sangat terpandang dan kaya raya dari suku Quraisy. Ibunya dikenal sebagai wanita berada yang sangat menyayanginya dan memenuhi semua kebutuhannya. Sejak kecil, Mus’ab tumbuh dalam lingkungan penuh kemewahan, pendidikan yang baik, serta pergaulan kalangan elite Makkah. Kehidupan yang nyaman ini menjadikannya salah satu pemuda paling dikenal di kota tersebut." },
+            { t: "2. Pemuda Paling Tampan dan Berkelas di Makkah", d: "Sebelum memeluk Islam, Mus’ab dikenal sebagai pemuda yang paling rapi, harum, dan berpenampilan menawan. Ia selalu mengenakan pakaian mahal dan menggunakan minyak wangi terbaik. Banyak orang Makkah mengaguminya karena pembawaannya yang anggun dan tutur katanya yang lembut. Ia menjadi simbol kemewahan dan kebanggaan keluarga bangsawan Quraisy pada masa itu." },
+            { t: "3. Masuk Islam dengan Penuh Keyakinan", d: "Mus’ab memeluk Islam setelah mendengar ajaran Nabi Muhammad SAW di rumah Al-Arqam. Meski awalnya dilakukan secara sembunyi-sembunyi, keislamannya lahir dari keyakinan yang mendalam terhadap kebenaran risalah Nabi. Ia tersentuh oleh ayat-ayat Al-Qur’an yang dibacakan, sehingga hatinya mantap menerima Islam walau sadar risiko besar yang akan dihadapinya." },
+            { t: "4. Menghadapi Tekanan dan Siksaan Keluarga", d: "Ketika ibunya mengetahui bahwa ia telah masuk Islam, Mus’ab langsung mendapatkan tekanan keras. Ia dikurung di dalam rumah dan dilarang bertemu dengan Nabi serta kaum Muslimin lainnya. Semua fasilitas dan kemewahan yang biasa ia nikmati dihentikan. Namun, ujian tersebut justru menguatkan imannya dan membuktikan keteguhannya dalam mempertahankan agama." },
+            { t: "5. Hijrah ke Habasyah demi Menjaga Iman", d: "Karena tekanan yang semakin berat di Makkah, Mus’ab ikut dalam rombongan sahabat yang hijrah ke Habasyah (Ethiopia). Hijrah ini dilakukan untuk menyelamatkan diri dari penyiksaan kaum Quraisy dan menjaga kebebasan beribadah. Perjalanan tersebut menunjukkan kesungguhannya dalam mempertahankan iman meski harus meninggalkan tanah kelahiran." },
+            { t: "6. Duta Islam Pertama ke Madinah", d: "Setelah terjadinya Bai’at Aqabah pertama, Nabi Muhammad SAW mempercayakan Mus’ab untuk pergi ke Yatsrib (Madinah) sebagai guru dan pendakwah. Ia mengajarkan Al-Qur’an, memimpin salat, serta membimbing masyarakat yang baru mengenal Islam. Kepercayaan ini menunjukkan kedalaman ilmu dan kematangan pribadinya meskipun usianya masih muda." },
+            { t: "7. Berhasil Mengislamkan Tokoh-Tokoh Penting", d: "Dengan pendekatan yang lembut dan penuh hikmah, Mus’ab berhasil mengislamkan tokoh-tokoh besar Madinah seperti Sa’ad bin Mu’adz dan Usaid bin Hudhair. Masuknya para pemimpin ini membawa dampak besar karena diikuti oleh kaumnya masing-masing. Dakwah Mus’ab membuat Islam berkembang pesat di Madinah dalam waktu yang relatif singkat." },
+            { t: "8. Mempersiapkan Kota Madinah untuk Hijrah Nabi", d: "Berkat dakwah Mus’ab, hampir setiap rumah di Madinah telah mengenal Islam sebelum Nabi Muhammad SAW hijrah. Ia berhasil membangun fondasi masyarakat Muslim yang kuat, sehingga ketika Nabi tiba, Madinah telah siap menjadi pusat peradaban Islam. Perannya sangat penting dalam sejarah perkembangan Islam." },
+            { t: "9. Pembawa Panji dalam Perang Uhud", d: "Pada Perang Uhud tahun 3 Hijriah, Mus’ab dipercaya membawa panji kaum Muslimin, sebuah posisi terhormat sekaligus berbahaya. Ia mempertahankan panji tersebut dengan penuh keberanian meski tubuhnya terluka. Saat tangan kanannya terputus, ia memegang panji dengan tangan kiri, dan ketika tangan kirinya terputus, ia tetap menjaganya hingga gugur." },
+            { t: "10. Gugur sebagai Syahid dengan Penuh Pengorbanan", d: "Mus’ab wafat sebagai syahid di medan Perang Uhud. Saat hendak dimakamkan, para sahabat mendapati kain kafan yang tersedia tidak cukup untuk menutupi seluruh tubuhnya. Jika kepalanya ditutup, kakinya terbuka, dan sebaliknya. Kisah ini menjadi simbol nyata perubahan hidupnya dari pemuda paling mewah di Makkah menjadi pejuang yang meninggalkan dunia demi keimanan dan perjuangan di jalan Allah."}
+];
+
+function bukaWeb(){
+document.getElementById('landing-page').style.display='none';
+document.getElementById('main-content').style.display='block';
+document.getElementById('bg-awal').style.display='none';
+document.getElementById('bg-utama').style.display='block';
+
+const list=document.getElementById('list');
+list.innerHTML="";
+dataInfo.forEach((item,i)=>{
+list.innerHTML+=`<div class="kotak" onclick="bukaModal(${i})">${item.t}</div>`;
+});
+}
+
+function bukaPenutup(){
+document.getElementById('main-content').style.display='none';
+document.getElementById('bg-utama').style.display='none';
+document.getElementById('halaman-penutup').style.display='flex';
+document.getElementById('bg-penutup').style.display='block';
+}
+
+function bukaModal(i){
+document.getElementById('judulModal').innerText=dataInfo[i].t;
+document.getElementById('teksModal').innerText=dataInfo[i].d;
+document.getElementById('myModal').style.display='flex';
+}
+
+function tutupModal(){
+document.getElementById('myModal').style.display='none';
+}
+</script>
+
+<script src="animasi.js"></script>
+</body>
+</html>
